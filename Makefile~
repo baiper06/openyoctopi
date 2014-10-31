@@ -1,7 +1,7 @@
 PHONY: all
 
 ### editar estos macros para el cross-compile ### CXX="g++    "
-CROSS_COMPILE	= arm-poky-linux-gnueabi-
+CROSS_COMPILE	= /home/fabian/Yocto/poky-dora-10.0.0/rpi-build/tmp/sysroots/i686-linux/usr/bin/armv6-vfp-poky-linux-gnueabi/arm-poky-linux-gnueabi-
 INCPATH		= -I/home/fabian/Yocto/poky-dora-10.0.0/rpi-build/tmp/sysroots/raspberrypi/usr/include/opencv
 SYSROOTFLAGS	= --sysroot=/home/fabian/Yocto/poky-dora-10.0.0/rpi-build/tmp/sysroots/raspberrypi
 ###           fin de la edicion               ###
