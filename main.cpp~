@@ -6,6 +6,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
 #include <cmath>
+#include <stdio.h>
 
 using namespace cv;
 using namespace std;
@@ -44,6 +45,7 @@ void make_bilinear_map(void) {
 
 
 int main(int argc, char** argv) {
+	printf("OpenCV version: %i.%i\n\n", CV_MAJOR_VERSION, CV_MINOR_VERSION);
         src = imread(argv[1], 1);
 
         dst.create(src.size(), src.type());
