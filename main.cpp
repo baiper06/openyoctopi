@@ -45,16 +45,27 @@ void make_bilinear_map(void) {
 
 
 int main(int argc, char** argv) {
-	printf("OpenCV version: %i.%i\n\n", CV_MAJOR_VERSION, CV_MINOR_VERSION);
+    printf("OpenCV version: %i.%i\n\n", CV_MAJOR_VERSION, CV_MINOR_VERSION);
+
+    if (argc == 3) {
+
         src = imread(argv[1], 1);
 
         dst.create(src.size(), src.type());
         map_x.create(src.size(), CV_32FC1);
         map_y.create(src.size(), CV_32FC1);
 
-        make_bilinear_map();
-        remap(src, dst, map_x, map_y, CV_INTER_LINEAR, BORDER_CONSTANT, Scalar(0,0, 0));
-	
-	imwrite(argv[2], dst);
-        return 0;
+        if (!map_x.empty() && !map_y.empty()) {
+
+            make_bilinear_map();
+            remap(src, dst, map_x, map_y, CV_INTER_LINEAR, BORDER_CONSTANT, Scalar(0,0, 0));
+
+            imwrite(argv[2], dst);
+        }else {
+            printf("ERROR: Imagen invalida\n\n");
+        }
+    } else {
+        printf("ERROR: Ingrese los nombres de la imagen de origen y la imagen de destino\n\n");
+    }
+    return 0;
 }

@@ -27,7 +27,7 @@ OPENCVFLAGS 	= -lopencv_core -lopencv_highgui -lopencv_imgproc
 
 pc:
 		$(CXX_PC) $(CXXFLAGS_PC) $(OBJ) $(SRC)
-		$(CXX_PC) $(LFLAGS) $(APP) $(OBJ) $(INCPATH) $(OPENCVFLAGSuo)
+		$(CXX_PC) $(LFLAGS) $(APP) $(OBJ) $(INCPATH) $(OPENCVFLAGS)
 
 embedded:
 		$(CXX) $(SYSROOTFLAGS) $(CXXFLAGS) $(OBJ) $(SRC)
